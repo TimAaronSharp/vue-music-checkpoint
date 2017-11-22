@@ -7,30 +7,37 @@
 </template>
 
 <script>
-export default {
-  name: 'home',
-  data () {
-    return {
-      
+
+  import MyTunes from './MyTunes'
+  import Itunes from './itunes'
+
+  export default {
+    name: 'home',
+    data() {
+      return {
+
+      }
+    },
+    components: {
+      MyTunes,
+      Itunes
     }
   }
-}
 </script>
 
 
 <style>
-.my-tunes{
-  display: inline-block;
-  min-height: 500px;
-  min-width: 50%;
-  background: green;
-}
+  .my-tunes {
+    display: inline-block;
+    min-height: 500px;
+    min-width: 50%;
+    background: green;
+  }
 
-.itunes{
-  display: inline-block;
-  background: red;
-  min-height: 500px;
-  min-width: 45%;
-}
-
+  .itunes {
+    display: inline-block;
+    background: red;
+    min-height: 500px;
+    min-width: 45%;
+  }
 </style>
