@@ -36,10 +36,10 @@ router.post('/api/songs', (req, res, next) => {
 })
 
 router.put('/api/songs/:id', (req,res,next) => {
-    Songs.findById(req.params.id, req.body)
+    Songs.findByIdAndUpdate(req.params.id, req.body)
     .then(song => {
-        song.put()
-        res.send(song)
+        // song.put()
+        res.send({message: "You have updated ", song })
     })
     .catch(err => {
         res.status(400).send(err)
@@ -47,7 +47,7 @@ router.put('/api/songs/:id', (req,res,next) => {
 })
 
 router.delete('/api/songs/:id', (req, res, next) => {
-    Songs.findOneAndRemove(req.params.id)
+    Songs.findByIdAndRemove(req.params.id)
         .then(song=>{
             console.log(song)
             res.send('You deleted song')
