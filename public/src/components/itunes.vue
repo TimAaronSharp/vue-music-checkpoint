@@ -11,9 +11,10 @@
                     <p>Artist: {{result.artistName}}</p>
                     <p>{{result.collectionName}}</p>
                     <p>${{result.trackPrice}}</p>
-                    <img :src=result.artworkUrl100 alt="">
+                    <!-- <img :src=result.artworkUrl100 alt=""> -->
                     <audio type="audio/mpeg" controls :src=result.previewUrl></audio>
-                    <button @click="addToMyTunes(result, myTunes)">Add to Playlist</button>
+                    <i class="fa fa-plus buttons" @click="addToMyTunes(result, myTunes)"></i>
+                    <!-- <button @click="addToMyTunes(result, myTunes)">Add to Playlist</button> -->
                 </div>
             </div>
         </div>
@@ -64,5 +65,15 @@
 
     .br {
         border-radius: 10px;
+    }
+    .buttons{
+        font-size: 3rem;
+    }
+    p{
+       font-weight: bold;
+       margin-left:10px;
+    }
+    .ilb{
+        display: inline-block;
     }
 </style>

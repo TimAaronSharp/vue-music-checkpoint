@@ -31,15 +31,19 @@
 
 
 <style>
+  .container-fluid{
+    background-image: url('../assets/music-page-background.jpg');
+    background-repeat: no-repeat;
+    background-position: fixed;
+    min-height: 100vh;
+  }
   .my-tunes {
     display: inline-block;
-    
-    background: green;
+    /* background: green; */
   }
 
   .itunes {
     display: inline-block;
-    background: red;
-   
+    /* background: red; */
   }
 </style>
