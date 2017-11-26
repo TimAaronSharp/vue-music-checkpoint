@@ -4,21 +4,25 @@
             <input type="text" name="" id="" placeholder="Search by Artist" v-model="search">
             <button type="submit">Search</button>
         </form>
+        <!-- <div class="container-fluid">
+            <div class="row"> -->
         <div class="songs" v-for="result in results">
-            <div class="row">
-                <div class="col-sm-12 m-tb-1 bc br border">
-                    <p>{{result.trackName}}</p>
-                    <p>Artist: {{result.artistName}}</p>
-                    <p>{{result.collectionName}}</p>
-                    <p>${{result.trackPrice}}</p>
-                    <!-- <img :src=result.artworkUrl100 alt=""> -->
-                    <audio type="audio/mpeg" controls :src=result.previewUrl></audio>
-                    <i class="fa fa-plus buttons" @click="addToMyTunes(result, myTunes)"></i>
-                    <!-- <button @click="addToMyTunes(result, myTunes)">Add to Playlist</button> -->
+            <div class="col-sm-4 max-h m-tb-1 bc br border m-lr-1 overflow-h">
+                <div class="move-left">
+                    <p>{{result.trackName}} ----- {{result.artistName}}</p>
                 </div>
+                <div class="move-left overflow-h">
+                    <p>{{result.collectionName}}</p>
+                </div>
+                <p>${{result.trackPrice}}</p>
+                <audio type="audio/mpeg" controls :src=result.previewUrl></audio>
+                <i class="fa fa-plus buttons" @click="addToMyTunes(result, myTunes)"></i>
+                <img :src=result.artworkUrl100 alt="">
             </div>
         </div>
     </div>
+    <!-- </div>
+        </div> -->
 </template>
 
 <script>
@@ -55,6 +59,13 @@
         margin-bottom: 1rem;
     }
 
+    .m-lr-1 {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .max-h{
+        max-height: 199px;
+    }
     .border {
         border: 5px solid black;
     }
@@ -66,14 +77,47 @@
     .br {
         border-radius: 10px;
     }
-    .buttons{
+
+    .buttons {
         font-size: 3rem;
     }
-    p{
-       font-weight: bold;
-       margin-left:10px;
+
+    p {
+        font-weight: bold;
+        margin-left: 10px;
     }
-    .ilb{
+
+    .ilb {
         display: inline-block;
+    }
+
+    img {
+        position: relative;
+        bottom: 8rem;
+        right:5.9rem;
+    }
+
+    .overflow-h {
+        overflow: hidden;
+        white-space: nowrap;
+        backface-visibility: hidden;
+    }
+
+    p {
+        max-width: 17vw;
+    }
+
+    .move-left {
+        position: relative;
+        right: .5px;
+        transition: right 10s linear;
+    }
+
+    .move-left:hover {
+        right: 700px;
+    }
+    audio{
+        position: relative;
+        top:2rem;
     }
 </style>

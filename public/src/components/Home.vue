@@ -34,7 +34,8 @@
   .container-fluid{
     background-image: url('../assets/music-page-background.jpg');
     background-repeat: no-repeat;
-    background-position: fixed;
+    background-attachment: fixed;
+    background-size: cover;
     min-height: 100vh;
   }
   .my-tunes {
