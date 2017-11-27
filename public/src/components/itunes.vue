@@ -6,15 +6,17 @@
         </form>
         <div class="songs" v-for="result in results">
             <div class="col-sm-4 max-h m-tb-1 bc br border m-lr-1 overflow-h">
-                <div class="move-left">
+                <div class="move-left m-t">
                     <p>{{result.trackName}} ----- {{result.artistName}}</p>
                 </div>
-                <div class="move-left overflow-h">
+                <div class="move-left overflow-h m-t">
                     <p>{{result.collectionName}}</p>
                 </div>
                 <p>${{result.trackPrice}}</p>
-                <audio type="audio/mpeg" controls :src=result.previewUrl></audio>
-                <i class="fa fa-plus buttons" @click="addToMyTunes(result, myTunes)"></i>
+                <div class="preview-bar-add m-t">
+                    <audio type="audio/mpeg" controls :src=result.previewUrl></audio>
+                    <i class="fa fa-plus buttons pull-right" @click="addToMyTunes(result, myTunes)"></i>
+                </div>
                 <img class="itunes-img" :src=result.artworkUrl100 alt="">
             </div>
         </div>
@@ -50,6 +52,9 @@
 </script>
 
 <style>
+    .m-t{
+        margin-top:1rem;
+    }
     .m-tb-1 {
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -91,8 +96,8 @@
 
     .itunes-img {
         position: relative;
-        bottom: 8rem;
-        right: 5.5rem;
+        bottom:12.5rem;
+        left: 27.5rem;
     }
 
     .overflow-h {
@@ -109,5 +114,9 @@
 
     .move-left:hover {
         right: 700px;
+    }
+    .preview-bar-add{
+        position:relative;
+        top: 4.5rem;
     }
 </style>

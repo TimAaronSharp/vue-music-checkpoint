@@ -5,9 +5,9 @@
 
 
             <p class="p-ilb playlist-font">{{playlist.name}}</p>
-            <div class="song-area overflow-h" id="list" v-for="tune in myTunes">
+            <div class="song-area overflow-h" id="list" v-for="(tune, i) in myTunes">
                 <div class="move-left">
-                    <p>{{tune.title}} ----- {{tune.artist}}</p>
+                    <p>{{i+1}}. {{tune.title}} ----- {{tune.artist}}</p>
                 </div>
                 <audio type="audio/mpeg" controls :src=tune.preview></audio>
                 <i class="fa fa-arrow-up buttons" @click="promoteMyTune(tune, myTunes)"></i>
