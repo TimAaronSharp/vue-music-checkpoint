@@ -1,6 +1,4 @@
 <template>
-    <!-- <div class="container-fluid music">
-        <div class="row"> -->
     <div class="music">
         <!-- <i class="fa fa-arrow-right buttons border bc br-5"></i> -->
         <div class="col-sm-12 playlist-area border bc br fixed overflow list" v-for="playlist in playlists">
@@ -19,8 +17,6 @@
         </div>
         <!-- <i class="fa fa-arrow-left pull-right buttons border bc br-5" id="playlist-panel"></i> -->
     </div>
-    <!-- </div>
-    </div> -->
 </template>
 
 <script>
@@ -44,7 +40,6 @@
             demoteMyTune(tune, myTunes) {
                 this.$store.dispatch('demoteTrack', { tune, myTunes })
             }
-
         },
         computed: {
             playlists() {
@@ -54,7 +49,6 @@
                 return this.$store.state.myTunes
             }
         }
-
     }
 
 </script>
@@ -130,7 +124,8 @@
     ::-webkit-scrollbar-thumb {
         background: #888;
     }
-    .playlist-font{
+
+    .playlist-font {
         font-size: 3rem;
     }
 </style>

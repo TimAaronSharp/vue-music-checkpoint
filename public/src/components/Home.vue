@@ -31,23 +31,23 @@
 
 
 <style>
-  .container-fluid{
+  .container-fluid {
     background-image: url('../assets/music-page-background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     min-height: 100vh;
   }
+
   .my-tunes {
     display: inline-block;
-    /* background: green; */
   }
 
   .itunes {
     display: inline-block;
-    /* background: red; */
   }
-  i{
+
+  i {
     cursor: pointer;
   }
 </style>

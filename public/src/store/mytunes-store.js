@@ -15,9 +15,6 @@ var store = new vuex.Store({
     setResults(state, results) {
       state.results = results
     },
-    // addToMyTunes(state, track) {
-    //   myTunes.push(track)
-    // },
     setMyPlaylists(state, playlist) {
       state.myPlaylists = playlist
       console.log(state.myPlaylists)
@@ -32,9 +29,7 @@ var store = new vuex.Store({
           return 0
         }
       })
-      // state.myTunes = song
       console.log(data)
-      // console.log(state.myTunes)
       state.myTunes = data
     }
   },
@@ -64,7 +59,6 @@ var store = new vuex.Store({
       var songUrl = '//localhost:5000/api/songs'
       $.get(songUrl)
         .then(data => {
-          // res.send(data)
           commit('setMyTunes', data)
         })
         .catch(err => {
@@ -72,7 +66,7 @@ var store = new vuex.Store({
         })
     },
     addToMyTunes({ commit, dispatch }, payload) {
-      // debugger
+
       function Song(config) {
 
         this.title = config.result.trackName,
@@ -87,13 +81,9 @@ var store = new vuex.Store({
 
       var newTrack = new Song(payload)
 
-      $.post('//localhost:5000/api/songs', newTrack) //THIS MAY NEED TO BE CHANGED/MOVED
+      $.post('//localhost:5000/api/songs', newTrack)
         .then(res => {
           dispatch('getMyTunes')
-
-          // data.create(newTrack)
-          // res.send(data)
-          // console.log(newTrack)
         })
         .catch(err => {
           res.status(400).send(err)
@@ -118,11 +108,6 @@ var store = new vuex.Store({
           data: { order: j - 1 }
         })
       }
-      // console.log("DeletedIndex: ", deletedIndex)
-      // for (let i = deletedIndex; i < payload.myTunes.length; i++) {
-      //   const element = payload.myTunes[i];
-      //   element.order--
-      // }
       $.ajax({
         method: "DELETE",
         url: '//localhost:5000/api/songs/' + payload.tune._id
@@ -136,18 +121,14 @@ var store = new vuex.Store({
     },
     promoteTrack({ commit, dispatch }, payload) {
       //this should increase the position / upvotes and downvotes on the track
-      // payload.tune.order++
 
-      // var track = payload.myTunes[i];
       for (var i = 0; i < payload.myTunes.length; i++) {
-        
+
         if (payload.myTunes[i]._id == payload.tune._id) {
           if (payload.myTunes[i - 1] == null) {
             console.log('too high brah!')
             break
           }
-          // payload.myTunes[i].order++
-          // payload.myTunes[i + 1].order--
           $.ajax({
             method: "PUT",
             url: "//localhost:5000/api/songs/" + payload.myTunes[i]._id,
@@ -165,19 +146,16 @@ var store = new vuex.Store({
           break
         }
       }
-
     },
     demoteTrack({ commit, dispatch }, payload) {
       //this should decrease the position / upvotes and downvotes on the track
       for (var i = 0; i < payload.myTunes.length; i++) {
-        
+
         if (payload.myTunes[i]._id == payload.tune._id) {
           if (payload.myTunes[i + 1] == null) {
             console.log('too low brah!')
             break
           }
-          // payload.myTunes[i].order++
-          // payload.myTunes[i + 1].order--
           $.ajax({
             method: "PUT",
             url: "//localhost:5000/api/songs/" + payload.myTunes[i]._id,
@@ -195,9 +173,7 @@ var store = new vuex.Store({
           break
         }
       }
-
     }
-
   }
 })
 

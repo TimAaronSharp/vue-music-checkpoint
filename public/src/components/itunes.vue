@@ -4,8 +4,6 @@
             <input type="text" name="" id="" placeholder="Search by Artist" v-model="search">
             <button type="submit">Search</button>
         </form>
-        <!-- <div class="container-fluid">
-            <div class="row"> -->
         <div class="songs" v-for="result in results">
             <div class="col-sm-4 max-h m-tb-1 bc br border m-lr-1 overflow-h">
                 <div class="move-left">
@@ -21,8 +19,6 @@
             </div>
         </div>
     </div>
-    <!-- </div>
-        </div> -->
 </template>
 
 <script>
@@ -63,9 +59,11 @@
         margin-left: 1rem;
         margin-right: 1rem;
     }
-    .max-h{
+
+    .max-h {
         max-height: 199px;
     }
+
     .border {
         border: 5px solid black;
     }
@@ -94,7 +92,7 @@
     .itunes-img {
         position: relative;
         bottom: 8rem;
-        right:5.5rem;
+        right: 5.5rem;
     }
 
     .overflow-h {
@@ -102,10 +100,6 @@
         white-space: nowrap;
         backface-visibility: hidden;
     }
-
-    /* p {
-        max-width: 17vw;
-    } */
 
     .move-left {
         position: relative;

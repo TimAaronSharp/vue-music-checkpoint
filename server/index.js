@@ -13,19 +13,13 @@ var playlistRoutes = require('./server-assets/routes/playlist-routes')
 
 server.use(cors({})) //ALLOWS THINGS TO TALK TO EACH OTHER ACROSS ORIGINS (SERVERS)
 server.use(bp.json())
-server.use(bp.urlencoded({extended: true}))
+server.use(bp.urlencoded({ extended: true }))
 
 server.use(songRoutes)
 server.use(playlistRoutes)
 //ROUTE VARIABLES
 
-//getMusic dont need???
-//addSongToList --- playlistRoutes
-//updateRanking (PUT) dont need???
-//removeFromMyList (DELETE) dont need???
-
-
 //REGISTER ROUTES
 
 
-server.listen(port, () => {console.log('Serving on port: ', port)})
+server.listen(port, () => { console.log('Serving on port: ', port) })
