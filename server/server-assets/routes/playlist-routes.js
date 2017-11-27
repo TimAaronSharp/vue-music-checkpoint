@@ -36,9 +36,9 @@ router.post('/api/playlists', (req, res, next) => {
 })
 
 router.put('/api/playlists/:id', (req,res,next) => {
-    Playlists.findById(req.params.id, req.body)
+    Playlists.findByIdAndUpdate(req.params.id, req.body)
     .then(data => {
-        playlist.put()
+        // playlist.put()
         res.send(data)
     })
     .catch(err => {

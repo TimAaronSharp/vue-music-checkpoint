@@ -17,7 +17,7 @@
                 <p>${{result.trackPrice}}</p>
                 <audio type="audio/mpeg" controls :src=result.previewUrl></audio>
                 <i class="fa fa-plus buttons" @click="addToMyTunes(result, myTunes)"></i>
-                <img :src=result.artworkUrl100 alt="">
+                <img class="itunes-img" :src=result.artworkUrl100 alt="">
             </div>
         </div>
     </div>
@@ -91,10 +91,10 @@
         display: inline-block;
     }
 
-    img {
+    .itunes-img {
         position: relative;
         bottom: 8rem;
-        right:5.9rem;
+        right:5.5rem;
     }
 
     .overflow-h {
@@ -103,9 +103,9 @@
         backface-visibility: hidden;
     }
 
-    p {
+    /* p {
         max-width: 17vw;
-    }
+    } */
 
     .move-left {
         position: relative;
@@ -115,9 +115,5 @@
 
     .move-left:hover {
         right: 700px;
-    }
-    audio{
-        position: relative;
-        top:2rem;
     }
 </style>

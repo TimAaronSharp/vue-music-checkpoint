@@ -3,8 +3,8 @@
     <div class="container-fluid">
       <div class="row">
         <!-- YOU WILL PROBABLY END UP WITH SOMETHING LIKE THIS -->
-        <my-tunes class="my-tunes col-md-4"></my-tunes>
-        <itunes class="itunes col-md-8"></itunes>
+        <my-tunes class="my-tunes col-sm-4"></my-tunes>
+        <itunes class="itunes col-sm-8"></itunes>
       </div>
     </div>
   </div>
@@ -46,5 +46,8 @@
   .itunes {
     display: inline-block;
     /* background: red; */
+  }
+  i{
+    cursor: pointer;
   }
 </style>

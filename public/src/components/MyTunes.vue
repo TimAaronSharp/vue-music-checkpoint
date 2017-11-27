@@ -2,10 +2,12 @@
     <!-- <div class="container-fluid music">
         <div class="row"> -->
     <div class="music">
-        <div class="col-md-12 playlist-area border bc br fixed overflow" v-for="playlist in playlists">
-            <p class="p-ilb">{{playlist.name}}</p>
-            <i class="fa fa-arrow-left pull-right buttons"></i>
-            <div class="song-area overflow-h" v-for="tune in myTunes">
+        <!-- <i class="fa fa-arrow-right buttons border bc br-5"></i> -->
+        <div class="col-sm-12 playlist-area border bc br fixed overflow list" v-for="playlist in playlists">
+
+
+            <p class="p-ilb playlist-font">{{playlist.name}}</p>
+            <div class="song-area overflow-h" id="list" v-for="tune in myTunes">
                 <div class="move-left">
                     <p>{{tune.title}} ----- {{tune.artist}}</p>
                 </div>
@@ -15,6 +17,7 @@
                 <i class="fa fa-times buttons remove pull-right" @click="removeFromMyTunes(tune, myTunes)"></i class="fa fa-times order">
             </div>
         </div>
+        <!-- <i class="fa fa-arrow-left pull-right buttons border bc br-5" id="playlist-panel"></i> -->
     </div>
     <!-- </div>
     </div> -->
@@ -26,11 +29,6 @@
         data() {
             return {
             }
-            $(document).ready(function () {
-                $("button").click(function () {
-                    ("p").toggle()
-                })
-            })
         },
         mounted() {
             this.$store.dispatch('getMyPlaylists'),
@@ -72,6 +70,12 @@
 
     .br {
         border-radius: 10px;
+    }
+
+    .br-5 {
+        border-radius: 5px;
+        position: relative;
+        right: 9.5rem;
     }
 
     .buttons {
@@ -125,5 +129,8 @@
 
     ::-webkit-scrollbar-thumb {
         background: #888;
+    }
+    .playlist-font{
+        font-size: 3rem;
     }
 </style>
