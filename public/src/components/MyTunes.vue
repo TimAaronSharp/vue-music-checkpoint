@@ -1,11 +1,8 @@
 <template>
-    <div class="music">
-        <!-- <i class="fa fa-arrow-right buttons border bc br-5"></i> -->
-        <div class="col-sm-12 playlist-area border bc br fixed overflow list" v-for="playlist in playlists">
-
-
+    <div class="music row">
+        <div class="col-sm-10 playlist-area border bc br fixed overflow" id="list" v-for="playlist in playlists">
             <p class="p-ilb playlist-font">{{playlist.name}}</p>
-            <div class="song-area overflow-h" id="list" v-for="(tune, i) in myTunes">
+            <div class="song-area overflow-h" v-for="(tune, i) in myTunes">
                 <div class="move-left">
                     <p>{{i+1}}. {{tune.title}} ----- {{tune.artist}}</p>
                 </div>
@@ -15,7 +12,10 @@
                 <i class="fa fa-times buttons remove pull-right" @click="removeFromMyTunes(tune, myTunes)"></i class="fa fa-times order">
             </div>
         </div>
-        <!-- <i class="fa fa-arrow-left pull-right buttons border bc br-5" id="playlist-panel"></i> -->
+        <div class="col-sm-1 hide-buttons floater">
+            <i class="fa fa-arrow-right pull-right buttons border bc br-5 m-l" @click="showPlaylist()"></i>
+            <i class="fa fa-arrow-left pull-right buttons border bc br-5 m-l" @click="hidePlaylist()" id="playlist-panel"></i>
+        </div>
     </div>
 </template>
 
@@ -39,6 +39,18 @@
             },
             demoteMyTune(tune, myTunes) {
                 this.$store.dispatch('demoteTrack', { tune, myTunes })
+            },
+            hidePlaylist() {
+                var d = document.getElementById('list')
+                if (!d.className.includes(' hidden')) {
+                    d.className += (' hidden')
+                }
+            },
+            showPlaylist() {
+                var d = document.getElementById('list')
+                if (d.className.includes(' hidden')) {
+                    d.className = ('col-sm-12 playlist-area border bc br fixed overflow')
+                }
             }
         },
         computed: {
@@ -127,5 +139,13 @@
 
     .playlist-font {
         font-size: 3rem;
+    }
+
+    .m-l {
+        margin-left: 10rem;
+    }
+
+    .floater {
+        float: right;
     }
 </style>
