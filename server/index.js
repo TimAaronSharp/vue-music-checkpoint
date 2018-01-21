@@ -8,9 +8,9 @@ var port = 5000
 
 var songRoutes = require('./server-assets/routes/song-routes')
 var playlistRoutes = require('./server-assets/routes/playlist-routes')
-
 //MIDDLEWARE
 
+server.use(express.static(__dirname + '/../public/dist'))
 server.use(cors({})) //ALLOWS THINGS TO TALK TO EACH OTHER ACROSS ORIGINS (SERVERS)
 server.use(bp.json())
 server.use(bp.urlencoded({ extended: true }))
