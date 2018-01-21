@@ -22,4 +22,4 @@ server.use(playlistRoutes)
 //REGISTER ROUTES
 
 
-server.listen(port, () => { console.log('Serving on port: ', port) })
+server.listen(process.env.PORT || port, () => { console.log('Serving on port: ', port) })
