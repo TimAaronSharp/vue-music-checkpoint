@@ -12,10 +12,10 @@
                 <i class="fa fa-times buttons remove pull-right" @click="removeFromMyTunes(tune, myTunes)"></i class="fa fa-times order">
             </div>
         </div>
-        <div class="col-sm-1 hide-buttons floater">
+        <!-- <div class="col-sm-1 hide-buttons floater">
             <i class="fa fa-arrow-right pull-right buttons border bc br-5 m-l" @click="showPlaylist()"></i>
             <i class="fa fa-arrow-left pull-right buttons border bc br-5 m-l" @click="hidePlaylist()" id="playlist-panel"></i>
-        </div>
+        </div> -->
     </div>
 </template>
 
